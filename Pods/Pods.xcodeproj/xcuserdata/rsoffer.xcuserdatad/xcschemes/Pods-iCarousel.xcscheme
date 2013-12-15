@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   version = "1.3"
+   LastUpgradeVersion = "0500">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForArchiving = "YES"
+            buildForRunning = "YES"
+            buildForTesting = "YES"
+            buildForAnalyzing = "YES"
+            buildForProfiling = "YES">
+            <BuildableReference
+               BuildableName = "libPods-iCarousel.a"
+               BuildableIdentifier = "primary"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BlueprintIdentifier = "81A2BE91474F4629B6B33D9B"
+               BlueprintName = "Pods-iCarousel">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      buildConfiguration = "Debug"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB">
+      <Testables>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      debugDocumentVersioning = "YES"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      buildConfiguration = "Debug"
+      useCustomWorkingDirectory = "NO"
+      launchStyle = "0"
+      allowLocationSimulation = "YES"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      ignoresPersistentStateOnLaunch = "NO">
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </LaunchAction>
+   <ProfileAction
+      debugDocumentVersioning = "YES"
+      buildConfiguration = "Release"
+      useCustomWorkingDirectory = "NO"
+      savedToolIdentifier = ""
+      shouldUseLaunchSchemeArgsEnv = "YES">
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>
