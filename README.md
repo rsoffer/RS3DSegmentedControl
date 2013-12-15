@@ -26,7 +26,7 @@ A 3D filter control that gives users a fun way to browse between many segments.
 
  This code is distributed under the terms and conditions of the MIT license.
 
- Copyright (c) 2013 Yichao 'Peak' Ji
+ Copyright (c) 2013 Ron Soffer
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
