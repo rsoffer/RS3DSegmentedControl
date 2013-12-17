@@ -5,13 +5,27 @@ A 3D filter control that gives users a fun way to browse between many segments.
 
 ![alt tag](https://raw.github.com/rsoffer/RS3DSegmentedControl/master/sample.gif)
 
+# How to install
 
-# Implement the delegate methods:
+If you don't have cocoapods, visit http://www.cocoapods.org or follow the steps below:
+
 ~~~
-	- (NSUInteger)numberOfSegmentsIn3DSegmentedControl:(RS3DSegmentedControl *)segmentedControl;
-	- (NSString *)titleForSegmentAtIndex:(NSUInteger)segmentIndex segmentedControl:(RS3DSegmentedControl *)segmentedControl;
-	- (void)didSelectSegmentAtIndex:(NSUInteger)segmentIndex segmentedControl:(RS3DSegmentedControl *)segmentedControl;
+	# Install Commoand Line Tools in XCode->Preferences->Downloads first.
+	sudo gem install cocoapods
+	pod setup # Do not sudo here
 ~~~
+
+If you have Podfile, add ‘RS3DSegmentedControl. Or follow steps below:
+
+# Copy and paste these lines
+~~~
+	echo "platform :ios, ‘6.0’” > Podfile
+	echo "pod ‘RS3DSegmentedControl’” >> Podfile
+	pod install
+	open *.xcworkspace
+~~~
+This command will generate or edit YourProject.xcworkspace. Open this instead of your original YourProject.xcodeproj.
+
 
 # Create the view
 
@@ -20,6 +34,16 @@ A 3D filter control that gives users a fun way to browse between many segments.
 	_segmentedControl.delegate = self;
 	[self.view addSubview:_segmentedControl];
 ~~~
+
+
+
+# Implement the delegate methods:
+~~~
+	- (NSUInteger)numberOfSegmentsIn3DSegmentedControl:(RS3DSegmentedControl *)segmentedControl;
+	- (NSString *)titleForSegmentAtIndex:(NSUInteger)segmentIndex segmentedControl:(RS3DSegmentedControl *)segmentedControl;
+	- (void)didSelectSegmentAtIndex:(NSUInteger)segmentIndex segmentedControl:(RS3DSegmentedControl *)segmentedControl;
+~~~
+
 
 
 
