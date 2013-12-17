@@ -17,8 +17,8 @@ If you don't have cocoapods, visit http://www.cocoapods.org or follow the steps 
 
 If you have Podfile, add ‘RS3DSegmentedControl. Or follow steps below:
 
-# Copy and paste these lines
 ~~~
+	# Copy and paste these lines
 	echo "platform :ios, ‘6.0’” > Podfile
 	echo "pod ‘RS3DSegmentedControl’” >> Podfile
 	pod install
