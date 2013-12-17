@@ -16,7 +16,6 @@ A 3D filter control that gives users a fun way to browse between many segments.
 	self.segmentedControl = [[RS3DSegmentedControl alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 64)];
 	_segmentedControl.delegate = self;
 	[self.view addSubview:_segmentedControl];
-    
 ~~~
 
 
