@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'RS3DSegmentedControl'
-  s.resources = 'Assets'
+  s.resources = 'RS3DSegmentedControl.bundle'
 
   #s.ios.exclude_files = 'Classes/osx'
   #s.osx.exclude_files = 'Classes/ios'

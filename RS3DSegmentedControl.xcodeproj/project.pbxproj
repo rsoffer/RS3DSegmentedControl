@@ -11,9 +11,9 @@
 		F51FF3E61860976B00C24160 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F51FF3E51860976B00C24160 /* AppDelegate.m */; };
 		F51FF3EA1860978D00C24160 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51FF3E81860978D00C24160 /* Main.storyboard */; };
 		F51FF3ED186097BA00C24160 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51FF3EC186097BA00C24160 /* ViewController.m */; };
-		F51FF3EF186097C400C24160 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F51FF3EE186097C400C24160 /* Images.xcassets */; };
 		F51FF3F3186097E300C24160 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F51FF3F0186097E300C24160 /* main.m */; };
 		F51FF3F4186097E300C24160 /* RS3DSegmentedControl-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F51FF3F1186097E300C24160 /* RS3DSegmentedControl-Info.plist */; };
+		F56D98DD1860A2C6005E9242 /* RS3DSegmentedControl.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F56D98DC1860A2C6005E9242 /* RS3DSegmentedControl.bundle */; };
 		F5CA6125185E3317004E5101 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CA6124185E3317004E5101 /* Foundation.framework */; };
 		F5CA6127185E3317004E5101 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CA6126185E3317004E5101 /* CoreGraphics.framework */; };
 		F5CA6129185E3317004E5101 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CA6128185E3317004E5101 /* UIKit.framework */; };
@@ -43,10 +43,10 @@
 		F51FF3E91860978D00C24160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		F51FF3EB186097BA00C24160 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Example/ViewController.h; sourceTree = SOURCE_ROOT; };
 		F51FF3EC186097BA00C24160 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Example/ViewController.m; sourceTree = SOURCE_ROOT; };
-		F51FF3EE186097C400C24160 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Example/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		F51FF3F0186097E300C24160 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Example/main.m; sourceTree = SOURCE_ROOT; };
 		F51FF3F1186097E300C24160 /* RS3DSegmentedControl-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "RS3DSegmentedControl-Info.plist"; path = "Example/RS3DSegmentedControl-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F51FF3F2186097E300C24160 /* RS3DSegmentedControl-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RS3DSegmentedControl-Prefix.pch"; path = "Example/RS3DSegmentedControl-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		F56D98DC1860A2C6005E9242 /* RS3DSegmentedControl.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RS3DSegmentedControl.bundle; sourceTree = SOURCE_ROOT; };
 		F5CA6121185E3317004E5101 /* RS3DSegmentedControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RS3DSegmentedControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5CA6124185E3317004E5101 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F5CA6126185E3317004E5101 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,7 +126,6 @@
 				F51FF3E81860978D00C24160 /* Main.storyboard */,
 				F51FF3EB186097BA00C24160 /* ViewController.h */,
 				F51FF3EC186097BA00C24160 /* ViewController.m */,
-				F51FF3EE186097C400C24160 /* Images.xcassets */,
 				F5CA612B185E3317004E5101 /* Supporting Files */,
 			);
 			name = Example;
@@ -139,6 +138,7 @@
 				F51FF3F0186097E300C24160 /* main.m */,
 				F51FF3F1186097E300C24160 /* RS3DSegmentedControl-Info.plist */,
 				F51FF3F2186097E300C24160 /* RS3DSegmentedControl-Prefix.pch */,
+				F56D98DC1860A2C6005E9242 /* RS3DSegmentedControl.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -248,8 +248,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F51FF3EF186097C400C24160 /* Images.xcassets in Resources */,
 				F51FF3EA1860978D00C24160 /* Main.storyboard in Resources */,
+				F56D98DD1860A2C6005E9242 /* RS3DSegmentedControl.bundle in Resources */,
 				F51FF3F4186097E300C24160 /* RS3DSegmentedControl-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

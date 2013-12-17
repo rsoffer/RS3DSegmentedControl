@@ -32,7 +32,16 @@
     if (self) {
         // Initialization code
         
-        UIImageView *bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RS3DSegmentedControlBg.png"]];
+        static UIImageView *bg = nil;
+        if (!bg)
+        {
+            NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
+            NSString *bundlePath = [resourcePath stringByAppendingPathComponent:@"RS3DSegmentedControl.bundle"];
+            NSString *imagePath = [bundlePath stringByAppendingPathComponent:@"RS3DSegmentedControlBg.png"];
+            
+            bg = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:imagePath]];
+        }
+        
         [self addSubview:bg];
         
         _carousel = [[iCarousel alloc] initWithFrame:self.bounds];
