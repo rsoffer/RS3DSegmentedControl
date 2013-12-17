@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AB3C3B58-D8AD-4F4D-A3C9-F31CF92A0936</string>
+	<key>IDESourceControlProjectName</key>
+	<string>RS3DSegmentedControl</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B59B0CC6-6267-4435-9E82-65574DD40BAB</key>
+		<string>https://github.com/rsoffer/RS3DSegmentedControl.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>RS3DSegmentedControl.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B59B0CC6-6267-4435-9E82-65574DD40BAB</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/rsoffer/RS3DSegmentedControl.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B59B0CC6-6267-4435-9E82-65574DD40BAB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B59B0CC6-6267-4435-9E82-65574DD40BAB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RS3DSegmentedControl</string>
+		</dict>
+	</array>
+</dict>
+</plist>
