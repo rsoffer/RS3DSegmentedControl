@@ -8,8 +8,6 @@
 
 #import "RS3DSegmentedControl.h"
 
-#import "iCarousel.h"
-
 @implementation RS3DSegmentedControl
 {
     iCarousel *_carousel;
