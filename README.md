@@ -15,7 +15,7 @@ If you don't have cocoapods, visit http://www.cocoapods.org or follow the steps 
 	pod setup # Do not sudo here
 ~~~
 
-If you have Podfile, add ‘RS3DSegmentedControl. Or follow steps below:
+If you have Podfile, add ‘RS3DSegmentedControl’. Or follow steps below:
 
 ~~~
 	# Copy and paste these lines
