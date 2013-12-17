@@ -3,6 +3,9 @@ RS3DSegmentedControl
 
 A 3D filter control that gives users a fun way to browse between many segments.
 
+![alt tag](https://github.com/rsoffer/RS3DSegmentedControl/blob/master/sample.gif)
+
+
 # Implement the delegate methods:
 ~~~
 	- (NSUInteger)numberOfSegmentsIn3DSegmentedControl:(RS3DSegmentedControl *)segmentedControl;
