@@ -27,6 +27,7 @@
 @property(nonatomic,weak) id<RS3DSegmentedControlDelegate> delegate;
 
 @property(nonatomic,assign) NSUInteger selectedSegmentIndex;
+@property(nonatomic,strong) UIColor *backgroundColor;
 
 @end
 

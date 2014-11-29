@@ -8,6 +8,12 @@
 
 #import "RS3DSegmentedControl.h"
 
+#import "iCarousel.h"
+
+@interface RS3DSegmentedControl ()
+@property(nonatomic,strong) UIImageView *backgroundImage;
+@end
+
 @implementation RS3DSegmentedControl
 {
     iCarousel *_carousel;
@@ -30,17 +36,8 @@
     if (self) {
         // Initialization code
         
-        static UIImageView *bg = nil;
-        if (!bg)
-        {
-            NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
-            NSString *bundlePath = [resourcePath stringByAppendingPathComponent:@"RS3DSegmentedControl.bundle"];
-            NSString *imagePath = [bundlePath stringByAppendingPathComponent:@"RS3DSegmentedControlBg.png"];
-            
-            bg = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:imagePath]];
-        }
-        
-        [self addSubview:bg];
+        self.backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RS3DSegmentedControlBg.png"]];
+        [self addSubview:_backgroundImage];
         
         _carousel = [[iCarousel alloc] initWithFrame:self.bounds];
         _carousel.backgroundColor = [UIColor clearColor];
@@ -197,6 +194,36 @@
     [_delegate didSelectSegmentAtIndex:carousel.currentItemIndex segmentedControl:self];
 }
 
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor
+{
+    _backgroundColor = backgroundColor;
+    
+    self.backgroundImage.image = [self colorImage:self.backgroundImage.image withColor:backgroundColor];
+}
+
+
+- (UIImage *)colorImage:(UIImage *)image withColor:(UIColor *)color
+{
+    // Make a rectangle the size of your image
+    CGRect rect = CGRectMake(0, 0, image.size.width, image.size.height);
+    // Create a new bitmap context based on the current image's size and scale, that has opacity
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, image.scale);
+    // Get a reference to the current context (which you just created)
+    CGContextRef c = UIGraphicsGetCurrentContext();
+    // Draw your image into the context we created
+    [image drawInRect:rect];
+    // Set the fill color of the context
+    CGContextSetFillColorWithColor(c, [color CGColor]);
+    // This sets the blend mode, which is not super helpful. Basically it uses the your fill color with the alpha of the image and vice versa. I'll include a link with more info.
+    CGContextSetBlendMode(c, kCGBlendModeSourceAtop);
+    // Now you apply the color and blend mode onto your context.
+    CGContextFillRect(c, rect);
+    // You grab the result of all this drawing from the context.
+    UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
+    // And you return it.
+    return result;
+}
 
 
 @end
