@@ -36,7 +36,11 @@
     if (self) {
         // Initialization code
         
-        self.backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RS3DSegmentedControlBg.png"]];
+        NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
+        NSString *bundlePath = [resourcePath stringByAppendingPathComponent:@"RS3DSegmentedControl.bundle"];
+        NSString *imagePath = [bundlePath stringByAppendingPathComponent:@"RS3DSegmentedControlBg.png"];
+        self.backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:imagePath]];
+        
         [self addSubview:_backgroundImage];
         
         _carousel = [[iCarousel alloc] initWithFrame:self.bounds];
