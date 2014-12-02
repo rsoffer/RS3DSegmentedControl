@@ -66,15 +66,14 @@
 {
     _delegate = delegate;
     
-    NSUInteger itemToScrollTo = 0;
-    
-    [_carousel scrollByNumberOfItems:_carousel.numberOfItems + itemToScrollTo duration:0.9f];
-    
     _delegateJustSet = YES;
     
     _carousel.delegate = self;
     
     [_carousel reloadData];
+    
+    NSUInteger itemToScrollTo = 0;
+    [_carousel scrollByNumberOfItems:_carousel.numberOfItems + itemToScrollTo duration:0.9f];
 }
 
 
