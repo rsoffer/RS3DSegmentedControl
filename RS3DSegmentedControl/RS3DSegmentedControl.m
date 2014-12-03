@@ -18,6 +18,7 @@
 {
     iCarousel *_carousel;
     BOOL _delegateJustSet;
+    BOOL _didLayout;
 }
 
 - (id)init
@@ -71,9 +72,6 @@
     _carousel.delegate = self;
     
     [_carousel reloadData];
-    
-    NSUInteger itemToScrollTo = 0;
-    [_carousel scrollByNumberOfItems:_carousel.numberOfItems + itemToScrollTo duration:0.9f];
 }
 
 
@@ -138,8 +136,9 @@
     switch (option)
     {
         case iCarouselOptionWrap:
+        {
             return YES;
-            
+        }
         case iCarouselOptionFadeMax:
         {
             return 0.0f;
@@ -187,6 +186,8 @@
 
 - (void)carouselDidEndScrollingAnimation:(iCarousel *)carousel
 {
+    if (!_didLayout) return;
+    
     if (_delegateJustSet)
     {
         _delegateJustSet = NO;
@@ -198,13 +199,23 @@
 }
 
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    _didLayout = YES;
+    if (_delegateJustSet) {
+        [_carousel scrollByNumberOfItems:_carousel.numberOfItems duration:0.9f];
+    }
+}
+
+
 - (void)setBackgroundColor:(UIColor *)backgroundColor
 {
     _backgroundColor = backgroundColor;
     
     self.backgroundImage.image = [self colorImage:self.backgroundImage.image withColor:backgroundColor];
 }
-
 
 - (UIImage *)colorImage:(UIImage *)image withColor:(UIColor *)color
 {
