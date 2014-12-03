@@ -52,11 +52,7 @@
         _carousel.stopAtItemBoundary = NO;
         _carousel.dataSource = self;
         
-        
         [self addSubview:_carousel];
-        
-        self.layer.shouldRasterize = YES;
-        self.layer.rasterizationScale = [UIScreen mainScreen].scale;
     }
     return self;
 }
@@ -225,6 +221,9 @@
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, image.scale);
     // Get a reference to the current context (which you just created)
     CGContextRef c = UIGraphicsGetCurrentContext();
+    CGContextSetAllowsAntialiasing(c, true);
+    CGContextSetShouldAntialias(c, true);
+    CGContextSetInterpolationQuality(c, kCGInterpolationHigh);
     // Draw your image into the context we created
     [image drawInRect:rect];
     // Set the fill color of the context
