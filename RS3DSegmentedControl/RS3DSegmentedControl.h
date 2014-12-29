@@ -29,6 +29,8 @@
 @property(nonatomic,assign) NSUInteger selectedSegmentIndex;
 @property(nonatomic,strong) UIColor *backgroundColor;
 
+- (void)scrollByOffset:(CGFloat)offset duration:(NSTimeInterval)duration;
+
 @end
 
 

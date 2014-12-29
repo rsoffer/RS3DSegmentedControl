@@ -18,7 +18,6 @@
 {
     iCarousel *_carousel;
     BOOL _delegateJustSet;
-    BOOL _didLayout;
 }
 
 - (id)init
@@ -50,9 +49,12 @@
         _carousel.decelerationRate = 0.6f;
         _carousel.scrollSpeed = 0.5f;
         _carousel.stopAtItemBoundary = NO;
-        _carousel.dataSource = self;
+        _carousel.dataSource = self;        
         
         [self addSubview:_carousel];
+        
+        self.layer.shouldRasterize = YES;
+        self.layer.rasterizationScale = [UIScreen mainScreen].scale;
     }
     return self;
 }
@@ -68,6 +70,9 @@
     _carousel.delegate = self;
     
     [_carousel reloadData];
+    
+    NSUInteger itemToScrollTo = 0;
+    [_carousel scrollByNumberOfItems:_carousel.numberOfItems + itemToScrollTo duration:0.9f];
 }
 
 
@@ -86,6 +91,11 @@
 - (void)setSelectedSegmentIndex:(NSUInteger)selectedSegmentIndex
 {
     [self setSelectedSegmentIndex:selectedSegmentIndex animated:YES];
+}
+
+- (void)scrollByOffset:(CGFloat)offset duration:(NSTimeInterval)duration
+{
+    [_carousel scrollByOffset:offset duration:duration];
 }
 
 
@@ -132,9 +142,8 @@
     switch (option)
     {
         case iCarouselOptionWrap:
-        {
             return YES;
-        }
+            
         case iCarouselOptionFadeMax:
         {
             return 0.0f;
@@ -182,8 +191,6 @@
 
 - (void)carouselDidEndScrollingAnimation:(iCarousel *)carousel
 {
-    if (!_didLayout) return;
-    
     if (_delegateJustSet)
     {
         _delegateJustSet = NO;
@@ -195,23 +202,13 @@
 }
 
 
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    _didLayout = YES;
-    if (_delegateJustSet) {
-        [_carousel scrollByNumberOfItems:_carousel.numberOfItems duration:0.9f];
-    }
-}
-
-
 - (void)setBackgroundColor:(UIColor *)backgroundColor
 {
     _backgroundColor = backgroundColor;
     
     self.backgroundImage.image = [self colorImage:self.backgroundImage.image withColor:backgroundColor];
 }
+
 
 - (UIImage *)colorImage:(UIImage *)image withColor:(UIColor *)color
 {
@@ -221,9 +218,6 @@
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, image.scale);
     // Get a reference to the current context (which you just created)
     CGContextRef c = UIGraphicsGetCurrentContext();
-    CGContextSetAllowsAntialiasing(c, true);
-    CGContextSetShouldAntialias(c, true);
-    CGContextSetInterpolationQuality(c, kCGInterpolationHigh);
     // Draw your image into the context we created
     [image drawInRect:rect];
     // Set the fill color of the context
