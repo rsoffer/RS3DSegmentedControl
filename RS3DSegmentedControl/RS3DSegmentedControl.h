@@ -31,6 +31,10 @@
 
 - (void)scrollByOffset:(CGFloat)offset duration:(NSTimeInterval)duration;
 
+- (CGSize)contentOffset;
+- (void)setContentOffset:(CGSize)contentOffset;
+
+
 @end
 
 

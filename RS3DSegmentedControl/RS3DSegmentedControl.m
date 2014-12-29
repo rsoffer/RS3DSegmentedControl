@@ -98,6 +98,15 @@
     [_carousel scrollByOffset:offset duration:duration];
 }
 
+- (CGSize)contentOffset
+{
+    return [_carousel contentOffset];
+}
+
+- (void)setContentOffset:(CGSize)contentOffset
+{
+    [_carousel setContentOffset:contentOffset];
+}
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
