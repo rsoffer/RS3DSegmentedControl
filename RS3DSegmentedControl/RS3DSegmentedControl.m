@@ -39,7 +39,7 @@
         NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
         NSString *bundlePath = [resourcePath stringByAppendingPathComponent:@"RS3DSegmentedControl.bundle"];
         NSString *imagePath = [bundlePath stringByAppendingPathComponent:@"RS3DSegmentedControlBg.png"];
-        self.backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:imagePath]];
+        self.backgroundImage = [[UIImageView alloc] initWithImage:[[UIImage imageWithContentsOfFile:imagePath] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 10, 0, 10)]];
         
         [self addSubview:_backgroundImage];
         
@@ -49,7 +49,7 @@
         _carousel.decelerationRate = 0.6f;
         _carousel.scrollSpeed = 0.5f;
         _carousel.stopAtItemBoundary = NO;
-        _carousel.dataSource = self;        
+        _carousel.dataSource = self;
         
         [self addSubview:_carousel];
         
@@ -59,6 +59,11 @@
     return self;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.backgroundImage.frame = self.bounds;
+}
 
 
 - (void)setDelegate:(id<RS3DSegmentedControlDelegate>)delegate
@@ -151,8 +156,8 @@
     switch (option)
     {
         case iCarouselOptionWrap:
-            return YES;
-            
+        return YES;
+        
         case iCarouselOptionFadeMax:
         {
             return 0.0f;
@@ -165,12 +170,12 @@
         {
             return 1.9f;
         }
-            
+        
         case iCarouselOptionOffsetMultiplier:
         {
             return 1.5f;
         }
-            
+        
         default:
         {
             return value;
@@ -184,7 +189,7 @@
 {
     NSInteger count = 10;
     
-    CGFloat spacing = 1.1f;
+    CGFloat spacing = self.bounds.size.width / 290.f;
     
     CGFloat arc = M_PI * 2.0f;
     
@@ -206,7 +211,7 @@
         
         return;
     }
-
+    
     [_delegate didSelectSegmentAtIndex:carousel.currentItemIndex segmentedControl:self];
 }
 
