@@ -140,6 +140,10 @@
     
     label.text = [_delegate titleForSegmentAtIndex:index segmentedControl:self];
     
+    if (self.textFont) {
+        label.font = self.textFont;
+    }
+    
     return view;
 }
 

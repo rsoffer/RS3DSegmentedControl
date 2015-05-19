@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "RS3DSegmentedControl"
-  s.version      = "0.2.2"
+  s.version      = "0.2.4"
   s.summary      = "A 3D filter control that gives users a fun way to browse between many segments."
   s.description  = <<-DESC
 		A 3D filter control that gives users a fun way to browse between many segments. Easy to use.
