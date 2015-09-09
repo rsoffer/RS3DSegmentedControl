@@ -29,6 +29,7 @@
 @property(nonatomic,assign) NSUInteger selectedSegmentIndex;
 @property(nonatomic,strong) UIColor *backgroundColor;
 @property(nonatomic,strong) UIFont *textFont;
+@property(nonatomic,strong) UIColor *textColor;
 
 - (void)scrollByOffset:(CGFloat)offset duration:(NSTimeInterval)duration;
 

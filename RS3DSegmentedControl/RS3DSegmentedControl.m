@@ -144,6 +144,10 @@
         label.font = self.textFont;
     }
     
+    if (self.textColor) {
+        label.textColor = self.textColor
+    }
+    
     return view;
 }
 

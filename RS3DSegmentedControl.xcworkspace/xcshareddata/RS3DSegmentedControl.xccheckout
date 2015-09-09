@@ -10,29 +10,29 @@
 	<string>RS3DSegmentedControl</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>B59B0CC6-6267-4435-9E82-65574DD40BAB</key>
+		<key>FFB319B68A67A4C21B424FC552237A446B4260D6</key>
 		<string>https://github.com/rsoffer/RS3DSegmentedControl.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>RS3DSegmentedControl.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>B59B0CC6-6267-4435-9E82-65574DD40BAB</key>
+		<key>FFB319B68A67A4C21B424FC552237A446B4260D6</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/rsoffer/RS3DSegmentedControl.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>B59B0CC6-6267-4435-9E82-65574DD40BAB</string>
+	<string>FFB319B68A67A4C21B424FC552237A446B4260D6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B59B0CC6-6267-4435-9E82-65574DD40BAB</string>
+			<string>FFB319B68A67A4C21B424FC552237A446B4260D6</string>
 			<key>IDESourceControlWCCName</key>
 			<string>RS3DSegmentedControl</string>
 		</dict>
