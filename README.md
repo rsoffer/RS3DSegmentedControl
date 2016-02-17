@@ -10,7 +10,7 @@ A 3D filter control that gives users a fun way to browse between many segments.
 If you don't have cocoapods, visit http://www.cocoapods.org or follow the steps below:
 
 ~~~
-	# Install Commoand Line Tools in XCode->Preferences->Downloads first.
+	# Install Command Line Tools in XCode->Preferences->Downloads first.
 	sudo gem install cocoapods
 	pod setup # Do not sudo here
 ~~~
