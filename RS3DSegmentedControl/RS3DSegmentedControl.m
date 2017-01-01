@@ -148,7 +148,7 @@
     }
     
     if (self.textColor) {
-        label.textColor = self.textColor
+        label.textColor = self.textColor;
     }
     
     return view;
