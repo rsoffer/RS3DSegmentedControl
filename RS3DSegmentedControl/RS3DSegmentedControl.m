@@ -22,7 +22,7 @@
 
 - (id)init
 {
-    if (self = [self initWithFrame:CGRectMake(0, 0, 320, 64)])
+    if (self = [self initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 64)])
     {
         
     }
@@ -36,7 +36,7 @@
     if (self) {
         // Initialization code
         
-        NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
+        NSString *resourcePath = [[NSBundle bundleForClass:self.class] resourcePath];
         NSString *bundlePath = [resourcePath stringByAppendingPathComponent:@"RS3DSegmentedControl.bundle"];
         NSString *imagePath = [bundlePath stringByAppendingPathComponent:@"RS3DSegmentedControlBg.png"];
         self.backgroundImage = [[UIImageView alloc] initWithFrame:frame];
