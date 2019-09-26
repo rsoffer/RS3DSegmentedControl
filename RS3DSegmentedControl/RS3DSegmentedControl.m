@@ -10,8 +10,10 @@
 
 #import "iCarousel.h"
 
+
 @interface RS3DSegmentedControl ()
-@property(nonatomic,strong) UIImageView *backgroundImage;
+@property(nonatomic,strong) UIImage *backgroundImage;
+@property(nonatomic,strong) UIImageView *backgroundImageView;
 @end
 
 @implementation RS3DSegmentedControl
@@ -39,12 +41,13 @@
         NSString *resourcePath = [[NSBundle bundleForClass:self.class] resourcePath];
         NSString *bundlePath = [resourcePath stringByAppendingPathComponent:@"RS3DSegmentedControl.bundle"];
         NSString *imagePath = [bundlePath stringByAppendingPathComponent:@"RS3DSegmentedControlBg.png"];
-        self.backgroundImage = [[UIImageView alloc] initWithFrame:frame];
-        self.backgroundImage.contentMode = UIViewContentModeScaleToFill;
-        UIImage * image = [UIImage imageWithContentsOfFile:imagePath];
-        self.backgroundImage.image = image;
         
-        [self addSubview:_backgroundImage];
+        self.backgroundImageView = [[UIImageView alloc] initWithFrame:frame];
+        
+        self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.backgroundImage = [UIImage imageWithContentsOfFile:imagePath];
+        self.backgroundImageView.image = _backgroundImage;
+        [self addSubview:_backgroundImageView];
         
         _carousel = [[iCarousel alloc] initWithFrame:self.bounds];
         _carousel.backgroundColor = [UIColor clearColor];
@@ -65,7 +68,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.backgroundImage.frame = self.bounds;
+    self.backgroundImageView.frame = self.bounds;
 }
 
 
@@ -231,7 +234,25 @@
 {
     _backgroundColor = backgroundColor;
     
-    self.backgroundImage.image = [self colorImage:self.backgroundImage.image withColor:backgroundColor];
+    [self configureBackgroundImage];
+}
+
+- (void)configureBackgroundImage
+{
+    if (self.backgroundImage == nil) {
+        return;
+    }
+    
+    UIImage *image = [self colorImage:self.backgroundImage withColor:_backgroundColor];
+    image = [self resizedImage:image withWidth:self.frame.size.width andTiledAreaFrom:0 to:10 andFrom:image.size.width - 10 to:image.size.width];
+    self.backgroundImageView.image = image;
+}
+
+- (void)setFrame:(CGRect)frame
+{
+    [super setFrame:frame];
+    
+    [self configureBackgroundImage];
 }
 
 
@@ -255,6 +276,31 @@
     UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
     // And you return it.
     return result;
+}
+
+- (UIImage *)resizedImage:(UIImage *)image withWidth:(CGFloat)newWidth andTiledAreaFrom:(CGFloat)from1 to:(CGFloat)to1 andFrom:(CGFloat)from2 to:(CGFloat)to2  {
+    NSAssert(image.size.width < newWidth, @"Cannot scale NewWidth %f > self.size.width %f", newWidth, image.size.width);
+
+    CGFloat originalWidth = image.size.width;
+    CGFloat tiledAreaWidth = (newWidth - originalWidth)/2;
+
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(originalWidth + tiledAreaWidth, image.size.height), NO, image.scale);
+
+    UIImage *firstResizable = [image resizableImageWithCapInsets:UIEdgeInsetsMake(0, from1, 0, originalWidth - to1) resizingMode:UIImageResizingModeTile];
+    [firstResizable drawInRect:CGRectMake(0, 0, originalWidth + tiledAreaWidth, image.size.height)];
+
+    UIImage *leftPart = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(newWidth, image.size.height), NO, image.scale);
+
+    UIImage *secondResizable = [leftPart resizableImageWithCapInsets:UIEdgeInsetsMake(0, from2 + tiledAreaWidth, 0, originalWidth - to2) resizingMode:UIImageResizingModeTile];
+    [secondResizable drawInRect:CGRectMake(0, 0, newWidth, image.size.height)];
+
+    UIImage *fullImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return fullImage;
 }
 
 
