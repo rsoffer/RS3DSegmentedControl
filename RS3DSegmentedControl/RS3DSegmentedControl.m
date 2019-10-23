@@ -50,6 +50,7 @@
         [self addSubview:_backgroundImageView];
         
         _carousel = [[iCarousel alloc] initWithFrame:self.bounds];
+        _carousel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _carousel.backgroundColor = [UIColor clearColor];
         _carousel.type = iCarouselTypeCustom;
         _carousel.decelerationRate = 0.6f;
