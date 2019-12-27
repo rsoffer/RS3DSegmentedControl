@@ -1,0 +1,3 @@
+git tag -a 0.3.0 -m "0.3.0"
+git push --follow-tags
+pod trunk push RS3DSegmentedControl.podspec
