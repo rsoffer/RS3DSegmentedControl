@@ -280,7 +280,7 @@
 }
 
 - (UIImage *)resizedImage:(UIImage *)image withWidth:(CGFloat)newWidth andTiledAreaFrom:(CGFloat)from1 to:(CGFloat)to1 andFrom:(CGFloat)from2 to:(CGFloat)to2  {
-    NSAssert(image.size.width < newWidth, @"Cannot scale NewWidth %f > self.size.width %f", newWidth, image.size.width);
+    NSAssert(image.size.width <= newWidth, @"Cannot scale NewWidth %f > self.size.width %f", newWidth, image.size.width);
 
     CGFloat originalWidth = image.size.width;
     CGFloat tiledAreaWidth = (newWidth - originalWidth)/2;
